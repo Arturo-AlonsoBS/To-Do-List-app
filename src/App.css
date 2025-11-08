@@ -1,0 +1,89 @@
+.app-container {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: Arial, sans-serif;
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+}
+
+.task-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.task-input button {
+  padding: 8px 12px;
+}
+
+.controls {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  margin-right: 6px;
+}
+
+.filters .active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.right-controls {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.clear-btn {
+  margin-left: 8px;
+}
+
+.task-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 12px;
+}
+
+.task-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.task-item .text-completed {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 6px;
+}
+
+.empty {
+  color: #666;
+  padding: 12px 0;
+}
+
+.footer {
+  margin-top: 16px;
+  color: #444;
+}
