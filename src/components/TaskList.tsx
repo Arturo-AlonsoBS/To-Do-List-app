@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import type { Task } from '../types';
 
-
 interface Props {
   tasks: Task[];
   onToggle: (id: number) => void;
@@ -43,8 +42,8 @@ export default function TaskList({ tasks, onToggle, onDelete, onEdit }: Props) {
                   if (e.key === "Escape") setEditingId(null);
                 }}
               />
-              <button onClick={() => saveEdit(task.id)}>Guardar</button>
-              <button onClick={() => setEditingId(null)}>Cancelar</button>
+              <button className="edit-btn" onClick={() => saveEdit(task.id)}>Guardar</button>
+              <button className="delete-btn" onClick={() => setEditingId(null)}>Cancelar</button>
             </>
           ) : (
             <>
@@ -54,8 +53,8 @@ export default function TaskList({ tasks, onToggle, onDelete, onEdit }: Props) {
               >
                 {task.title}
               </span>
-              <button onClick={() => startEdit(task)}>Editar</button>
-              <button onClick={() => onDelete(task.id)}>Eliminar</button>
+              <button className="edit-btn" onClick={() => startEdit(task)}>Editar</button>
+              <button className="delete-btn" onClick={() => onDelete(task.id)}>Eliminar</button>
             </>
           )}
         </li>

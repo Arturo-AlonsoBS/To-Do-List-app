@@ -3,10 +3,11 @@
   margin: 2rem auto;
   padding: 0 1rem;
   font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 header h1 {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 1rem 0;
 }
 
 .task-input {
@@ -24,66 +25,77 @@ header h1 {
 
 .task-input button {
   padding: 8px 12px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .controls {
   margin-top: 12px;
   display: flex;
-  gap: 8px;
-  align-items: center;
+  justify-content: center;
+  gap: 12px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .filters button {
   margin-right: 6px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
 }
 
-.filters .active {
-  font-weight: bold;
-  text-decoration: underline;
-}
+.filters .active { text-decoration: underline; font-weight: bold; }
 
-.right-controls {
-  margin-left: auto;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
+.pending-btn { background-color: #FFA500; color: white; }
+.completed-btn { background-color: #28a745; color: white; }
 
-.clear-btn {
-  margin-left: 8px;
-}
+.right-controls { display: flex; gap: 8px; align-items: center; }
+.delete-btn { background-color: red; color: white; border: none; border-radius: 4px; padding: 6px 10px; cursor: pointer; }
+.edit-btn { background-color: #007bff; color: white; border: none; border-radius: 4px; padding: 6px 10px; cursor: pointer; }
 
-.task-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 12px;
-}
+.pending-count { color: #FF6347; font-weight: bold; }
+.total-count { color: #1E90FF; font-weight: bold; }
+
+.task-list { list-style: none; padding-left: 0; margin-top: 12px; text-align: left; }
 
 .task-item {
   display: flex;
   gap: 8px;
   align-items: center;
-  padding: 8px 0;
+  padding: 8px;
   border-bottom: 1px solid #f0f0f0;
 }
 
-.task-item .text-completed {
-  text-decoration: line-through;
-  color: #666;
+.task-item .text-completed { text-decoration: line-through; color: #28a745; }
+
+.edit-input { flex: 1; padding: 6px; border: 1px solid #ccc; border-radius: 4px; }
+
+.empty { color: #666; padding: 12px 0; }
+
+.pagination {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 
-.edit-input {
-  flex: 1;
-  padding: 6px;
+.pagination button {
+  padding: 4px 8px;
+  border: 1px solid #003366;
+  background-color: #e0e0ff;
+  color: #003366;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-.empty {
-  color: #666;
-  padding: 12px 0;
+.pagination button:hover {
+  background-color: #003366;
+  color: #fff;
 }
 
-.footer {
-  margin-top: 16px;
-  color: #444;
-}
+.footer { margin-top: 16px; }
