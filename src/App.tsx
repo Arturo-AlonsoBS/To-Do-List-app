@@ -1,32 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import type { Task } from './types';
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
+import { usePersistentState } from './hooks/useLocalStorage';
 import "./App.css";
 
 type Filter = "all" | "completed" | "pending";
-const STORAGE_KEY = "my_todo_tasks_v1";
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = usePersistentState<Task[]>("my_todo_tasks_v1", []);
   const [filter, setFilter] = useState<Filter>("all");
-
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setTasks(JSON.parse(raw));
-    } catch (e) {
-      console.error("Error leyendo localStorage", e);
-    }
-  }, []);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
-    } catch (e) {
-      console.error("Error guardando localStorage", e);
-    }
-  }, [tasks]);
 
   const addTask = (text: string) => {
     const trimmed = text.trim();
@@ -44,7 +27,7 @@ function App() {
   };
 
   const editTask = (id: number, newText: string) => {
-    setTasks((prev) => prev.map(t => t.id === id ? { ...t, text: newText } : t));
+    setTasks((prev) => prev.map(t => t.id === id ? { ...t, title: newText } : t));
   };
 
   const clearCompleted = () => {
@@ -62,7 +45,7 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>To-Do List</h1>
+        <h1>To-Do List App</h1>
       </header>
 
       <TaskInput onAdd={addTask} />
